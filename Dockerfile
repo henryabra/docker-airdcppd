@@ -59,8 +59,10 @@ apk add --no-cache --virtual=build-dependencies3 \
 
 # compile airdcpp
  git clone https://github.com/airdcpp-web/airdcpp-webclient.git /tmp/airdcpp && \
+ git -C /tmp/airdcpp checkout $(git -C /tmp/airdcpp describe --tags --candidates=1 --abbrev=0) && \
  cd /tmp/airdcpp && \
  cmake \
+	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr . && \
  make && \
  make install && \
@@ -75,6 +77,9 @@ apk add --no-cache --virtual=build-dependencies3 \
  find /root -name . -o -prune -exec rm -rf -- {} + && \
  mkdir -p \
 	/root
+
+# environment variables
+ENV HOME="/config"
 
 # copy local files
 COPY root/ /
