@@ -7,7 +7,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs"
 
 RUN \
- echo "**** install build packages **** " && \
+ echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
 	boost-dev \
 	bzip2-dev \
