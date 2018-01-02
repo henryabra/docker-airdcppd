@@ -56,7 +56,6 @@ RUN \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr . && \
  make && \
- set +ex && \
  make install && \
  echo "**** cleanup ****" && \
  apk del --purge \
